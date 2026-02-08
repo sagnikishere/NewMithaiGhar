@@ -1,95 +1,96 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- Mobile Navigation Toggle ---
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const navItems = document.querySelectorAll('.nav-links a');
+    // --- 1. Cute Image Cycler Animation ---
+    const imgElement = document.getElementById('cycler-img');
+    const textElement = document.getElementById('cycler-text');
+    
+    // Data for cycling
+    const products = [
+        { name: "Truffle Cake", src: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1989&auto=format&fit=crop" },
+        { name: "Rasmalai", src: "https://images.unsplash.com/photo-1631260406856-f033c7a950a3?q=80&w=2070&auto=format&fit=crop" },
+        { name: "Gulab Jamun", src: "https://images.unsplash.com/photo-1630409346824-4f0e7b080087?q=80&w=2008&auto=format&fit=crop" },
+        { name: "Veg Momos", src: "https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?q=80&w=2069&auto=format&fit=crop" },
+        { name: "Samosa", src: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=2070&auto=format&fit=crop" },
+        { name: "Chocolates", src: "https://images.unsplash.com/photo-1548848221-0c2e497ed557?q=80&w=2071&auto=format&fit=crop" }
+    ];
 
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        // Toggle icon between bars and times (X)
-        const icon = hamburger.querySelector('i');
-        if (navLinks.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
+    let index = 0;
 
-    // Close menu when a link is clicked
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            hamburger.querySelector('i').classList.remove('fa-times');
-            hamburger.querySelector('i').classList.add('fa-bars');
-        });
-    });
+    function cycleProduct() {
+        // Remove animation class to reset
+        imgElement.classList.remove('pop-anim');
+        
+        // Change Index
+        index = (index + 1) % products.length;
+        
+        // Small timeout to allow class removal to register
+        setTimeout(() => {
+            imgElement.src = products[index].src;
+            textElement.textContent = products[index].name;
+            // Add animation class for the "Pop" effect
+            imgElement.classList.add('pop-anim');
+        }, 50);
+    }
 
-    // --- Menu Filtering Logic ---
-    const filterBtns = document.querySelectorAll('.tab-btn');
-    const menuItems = document.querySelectorAll('.menu-item');
+    // Change every 2.5 seconds
+    setInterval(cycleProduct, 2500);
+
+
+    // --- 2. Category Filters ---
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Remove active class from all buttons
             filterBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
             btn.classList.add('active');
 
             const filterValue = btn.getAttribute('data-filter');
 
-            menuItems.forEach(item => {
-                const category = item.getAttribute('data-category');
+            productCards.forEach(card => {
+                const category = card.getAttribute('data-category');
                 
                 if (filterValue === 'all' || category === filterValue) {
-                    item.style.display = 'block';
-                    // Add a small animation for reappearing items
-                    item.animate([
-                        { transform: 'scale(0.9)', opacity: 0 },
-                        { transform: 'scale(1)', opacity: 1 }
-                    ], {
-                        duration: 300,
-                        easing: 'ease-out'
-                    });
+                    card.style.display = 'flex';
+                    // Re-trigger animation
+                    card.style.opacity = 0;
+                    card.style.transform = "translateY(20px)";
+                    setTimeout(() => {
+                        card.style.opacity = 1;
+                        card.style.transform = "translateY(0)";
+                    }, 100);
                 } else {
-                    item.style.display = 'none';
+                    card.style.display = 'none';
                 }
             });
         });
     });
 
-    // --- Sticky Navbar Effect ---
-    window.addEventListener('scroll', () => {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.style.boxShadow = "0 5px 20px rgba(0,0,0,0.4)";
-            navbar.style.padding = "1rem 5%";
+    // --- 3. Mobile Menu ---
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        if (navLinks.style.display === 'flex') {
+            navLinks.style.display = 'none';
         } else {
-            navbar.style.boxShadow = "0 5px 20px rgba(0,0,0,0.2)";
-            navbar.style.padding = "1.2rem 5%";
+            navLinks.style.display = 'flex';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '70px';
+            navLinks.style.left = '0';
+            navLinks.style.width = '100%';
+            navLinks.style.background = 'white';
+            navLinks.style.padding = '2rem';
+            navLinks.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';
         }
     });
-
-    // --- Smooth Scroll Correction for Anchor Links ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                // Adjust for sticky header height (approx 80px)
-                const headerOffset = 80;
-                const elementPosition = targetSection.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-    
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
-            }
-        });
-    });
 });
+
+// --- 4. Direct WhatsApp Order Function ---
+function orderNow(itemName, price) {
+    const phoneNumber = "919934750872"; // Shop number
+    const message = `Hello New Mithai Ghar! I would like to order: *${itemName}* (Price: ₹${price}). Please confirm available quantity.`;
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+}
