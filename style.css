@@ -1,34 +1,18 @@
 /* --- Variables & Reset --- */
 :root {
-    /* "Cute UI" Palette based on reference */
-    --primary-red: #ff3e6c;   /* Vibrant cute red/pink */
-    --soft-red: #ffedf1;      /* Very light pink background */
+    --primary-red: #ff3e6c;
+    --soft-red: #ffedf1;
     --pure-white: #ffffff;
     --text-dark: #2d2d2d;
     --text-grey: #666666;
-    --accent-yellow: #ffc107; /* For stars and accents */
-    --pill-shadow: 0 8px 24px rgba(255, 62, 108, 0.15);
-    
-    /* Fonts */
+    --accent-yellow: #ffc107;
     --font-main: 'Nunito', sans-serif;
     --font-display: 'Pacifico', cursive;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: var(--font-main);
-}
-
-body {
-    background-color: var(--pure-white);
-    color: var(--text-dark);
-    overflow-x: hidden;
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
+body { background-color: var(--pure-white); color: var(--text-dark); overflow-x: hidden; }
 a { text-decoration: none; transition: 0.3s; }
-ul { list-style: none; }
 img { width: 100%; display: block; }
 
 /* --- Navbar --- */
@@ -41,228 +25,145 @@ img { width: 100%; display: block; }
     box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+.navbar { display: flex; justify-content: space-between; align-items: center; }
 
+/* --- CLICKABLE LOGO STYLES --- */
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--primary-red);
+    display: flex; align-items: center; gap: 8px;
+    font-size: 1.4rem; font-weight: 800; color: var(--primary-red);
+    cursor: pointer;
 }
-
 .logo-icon {
-    width: 40px; height: 40px;
-    background: var(--soft-red);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; background: var(--soft-red);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
     color: var(--primary-red);
 }
+/* If using an image logo, this ensures it fits */
+.logo-image { height: 50px; width: auto; }
 
-.nav-links { display: flex; gap: 2rem; }
-.nav-links a {
-    color: var(--text-dark);
-    font-weight: 700;
-    font-size: 1rem;
-}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: var(--text-dark); font-weight: 700; font-size: 1rem; }
 .nav-links a:hover, .nav-links a.active { color: var(--primary-red); }
 
 .nav-icons { display: flex; gap: 1rem; align-items: center; }
 .icon-btn {
-    width: 40px; height: 40px;
-    border-radius: 50%;
+    width: 40px; height: 40px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    color: var(--text-dark);
-    transition: 0.3s;
+    color: var(--text-dark); transition: 0.3s;
 }
 .icon-btn:hover { background: var(--soft-red); color: var(--primary-red); }
-
-.cart-btn { position: relative; }
-.dot {
-    position: absolute; top: 8px; right: 8px;
-    width: 8px; height: 8px; background: var(--primary-red);
-    border-radius: 50%;
-}
-
 .hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
 
-/* --- Hero Section (The "Cute" Curve) --- */
+/* --- Hero Section --- */
 .hero {
     background: linear-gradient(135deg, #ff3e6c 0%, #ff6b6b 100%);
-    position: relative;
-    padding-top: 2rem;
-    color: white;
+    position: relative; padding-top: 2rem; color: white;
 }
-
 .hero-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem 10% 0;
-    min-height: 500px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 2rem 10% 0; min-height: 500px;
 }
-
 .hero-text { flex: 1; z-index: 2; }
-
 .badge-pill {
-    background: rgba(255,255,255,0.2);
-    padding: 8px 16px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    display: inline-block;
-    margin-bottom: 1rem;
-    backdrop-filter: blur(5px);
+    background: rgba(255,255,255,0.2); padding: 8px 16px;
+    border-radius: 50px; font-weight: 700; font-size: 0.9rem;
+    display: inline-block; margin-bottom: 1rem; backdrop-filter: blur(5px);
 }
-
-.hero h1 {
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-    font-weight: 800;
-}
-
+.hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1rem; font-weight: 800; }
 .hero h1 .highlight { font-family: var(--font-display); color: #ffe600; font-weight: 400; }
-
 .hero p { margin-bottom: 2rem; opacity: 0.9; font-size: 1.1rem; max-width: 450px; }
-
 .hero-btns { display: flex; gap: 1rem; }
 
 .btn {
-    padding: 12px 30px;
-    border-radius: 50px;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    border: none;
-    transition: transform 0.2s;
+    padding: 12px 30px; border-radius: 50px; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 10px; cursor: pointer; border: none; transition: transform 0.2s;
 }
 .btn:hover { transform: translateY(-3px); }
-
 .btn-primary { background: var(--text-dark); color: white; }
 .btn-white { background: white; color: var(--primary-red); }
 
+/* Animation Classes */
 .hero-image { flex: 1; position: relative; display: flex; justify-content: center; }
 .floating-cake { width: 80%; border-radius: 50%; border: 5px solid rgba(255,255,255,0.3); }
 
+.pop-anim {
+    animation: cutePop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes cutePop {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
 .floating-card {
-    position: absolute;
-    background: white;
-    padding: 8px 15px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    display: flex; align-items: center; gap: 10px;
-    color: var(--text-dark);
-    font-weight: 700;
-    font-size: 0.9rem;
+    position: absolute; background: white; padding: 8px 15px;
+    border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex; align-items: center; gap: 10px; color: var(--text-dark); font-weight: 700; font-size: 0.9rem;
 }
 .floating-card img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
 .c1 { top: 20%; left: 0; animation: float 3s ease-in-out infinite; }
-.c2 { bottom: 10%; right: 0; animation: float 3s ease-in-out infinite 1.5s; }
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 .hero-wave { display: block; margin-bottom: -1px; width: 100%; height: auto; }
 
-/* --- Categories (Pills) --- */
+/* --- Categories --- */
 .categories { padding: 2rem 10%; text-align: center; }
-.section-header h2 { font-size: 2rem; margin-bottom: 2rem; color: var(--text-dark); }
-
-.category-scroll {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
+.section-header h2 { font-size: 2rem; margin-bottom: 1rem; color: var(--text-dark); }
+.category-scroll { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
 .cat-card {
-    width: 140px; height: 160px;
-    border-radius: 80px 80px 20px 20px; /* Pill shape */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    position: relative;
-    overflow: hidden;
+    width: 140px; height: 160px; border-radius: 80px 80px 20px 20px;
+    display: flex; flex-direction: column; align-items: center; padding: 10px;
+    cursor: pointer; transition: 0.3s; position: relative; overflow: hidden;
 }
-
 .cat-card:hover { transform: translateY(-5px); }
 .cat-card span { font-weight: 700; color: white; margin-bottom: 10px; margin-top: 15px; z-index: 2; font-size: 0.9rem; }
 .cat-card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid white; z-index: 2; }
+.bg-red { background: #ff6b6b; } .bg-pink { background: #ff9ff3; } .bg-orange { background: #ff9f43; } .bg-yellow { background: #feca57; }
 
-/* Cute Background Colors */
-.bg-red { background: #ff6b6b; }
-.bg-pink { background: #ff9ff3; }
-.bg-orange { background: #ff9f43; }
-.bg-yellow { background: #feca57; }
-.bg-purple { background: #5f27cd; }
+/* --- Filter Bar --- */
+.filter-bar { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+.filter-btn {
+    padding: 8px 20px; border-radius: 50px; border: 2px solid var(--primary-red);
+    background: white; color: var(--primary-red); font-weight: 700; cursor: pointer; transition: 0.3s;
+}
+.filter-btn.active, .filter-btn:hover { background: var(--primary-red); color: white; }
 
-/* --- Products (Cards) --- */
+/* --- Products --- */
 .products { padding: 4rem 10%; background: var(--soft-red); border-radius: 50px 50px 0 0; }
 .text-red { color: var(--primary-red); }
-.view-all-btn { float: right; color: var(--primary-red); font-weight: 700; margin-top: -30px; }
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
 .product-card {
-    background: white;
-    border-radius: 30px; /* Very rounded corners */
-    padding: 15px;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: 0.3s;
+    background: white; border-radius: 30px; padding: 15px; position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s;
 }
-.product-card:hover { transform: translateY(-5px); }
-
 .wishlist-btn {
-    position: absolute; top: 20px; right: 20px;
-    width: 35px; height: 35px;
-    background: white; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    cursor: pointer; z-index: 5;
-    color: #ccc;
+    position: absolute; top: 20px; right: 20px; width: 35px; height: 35px;
+    background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; z-index: 5; color: #ccc;
 }
-.wishlist-btn:hover { color: var(--primary-red); }
-
 .p-img { height: 180px; border-radius: 20px; overflow: hidden; margin-bottom: 1rem; }
 .p-img img { width: 100%; height: 100%; object-fit: cover; }
-
 .p-details h3 { font-size: 1.1rem; margin-bottom: 5px; }
 .rating { color: var(--accent-yellow); font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; }
 
-.p-footer { display: flex; justify-content: space-between; align-items: center; }
-.price { font-weight: 800; font-size: 1.1rem; color: var(--text-dark); }
-
-.add-btn {
-    width: 40px; height: 40px;
-    background: var(--primary-red);
-    color: white;
-    border: none; border-radius: 12px;
-    cursor: pointer;
-    transition: 0.2s;
+/* Product Footer (Price & WA Button) */
+.p-footer { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.price-bar {
+    background: var(--soft-red); color: var(--primary-red); padding: 8px 12px;
+    border-radius: 12px; font-weight: 800; font-size: 0.9rem;
 }
-.add-btn:hover { background: #d63031; }
+.wa-order-btn {
+    flex: 1; background: #25D366; color: white; border: none; padding: 10px;
+    border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.2s;
+    display: flex; align-items: center; justify-content: center; gap: 5px;
+}
+.wa-order-btn:hover { background: #128C7E; transform: scale(1.05); }
 
-/* --- Promise Section (Pink Pill) --- */
-.promise-section { padding: 4rem 10%; display: flex; justify-content: center; background: var(--soft-red); }
+/* --- Promise Section (FIXED THIS PART) --- */
+.promise-section { 
+    padding: 0 10% 4rem; /* Adjusted padding to look better below products */
+    display: flex; 
+    justify-content: center; 
+    background: var(--soft-red); /* Matches the product background */
+}
 
 .promise-pill {
     background: #ffe0e6;
@@ -274,40 +175,36 @@ img { width: 100%; display: block; }
     max-width: 1000px;
     flex-wrap: wrap;
     gap: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-.promise-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-.icon-circle { font-size: 1.5rem; color: var(--primary-red); }
-.promise-item span { font-weight: 700; color: var(--primary-red); }
-
-/* --- Banner Ticket --- */
-.banner-area { padding: 2rem 10% 4rem; background: var(--soft-red); }
-.ticket-banner {
-    background: linear-gradient(90deg, #ff3e6c, #ff9ff3);
-    border-radius: 30px;
-    padding: 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    position: relative;
-    overflow: hidden;
+.promise-item { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 10px; 
 }
 
-/* Pseudo-elements for ticket notches */
-.ticket-banner::before, .ticket-banner::after {
-    content: ''; position: absolute;
-    width: 40px; height: 40px; background: var(--soft-red); border-radius: 50%;
-    top: 50%; transform: translateY(-50%);
+.icon-circle { 
+    font-size: 1.8rem; 
+    color: var(--primary-red); 
+    background: white;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 5px 15px rgba(255, 62, 108, 0.2);
 }
-.ticket-banner::before { left: -20px; }
-.ticket-banner::after { right: -20px; }
 
-.ticket-content h3 { font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 10px; }
-.ticket-icon { font-size: 5rem; opacity: 0.2; transform: rotate(-20deg); }
+.promise-item span { 
+    font-weight: 700; 
+    color: var(--primary-red); 
+}
 
-/* --- Footer --- */
-footer { background: #fff0f3; padding: 4rem 10% 2rem; text-align: center; }
+/* --- Footer with Map --- */
+footer { background: #fff0f3; padding: 4rem 10% 2rem; }
+.footer-wrapper { display: flex; gap: 2rem; align-items: center; justify-content: center; flex-wrap: wrap; }
+.footer-map, .footer-content { flex: 1; min-width: 300px; }
+.footer-content { text-align: center; }
 .f-brand h3 { color: var(--primary-red); font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
 .f-socials { margin: 1.5rem 0; display: flex; justify-content: center; gap: 1rem; }
 .f-socials a {
@@ -315,19 +212,45 @@ footer { background: #fff0f3; padding: 4rem 10% 2rem; text-align: center; }
     display: flex; align-items: center; justify-content: center;
     color: var(--primary-red); box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
-.f-socials a:hover { background: var(--primary-red); color: white; }
-.footer-bottom { border-top: 1px solid rgba(0,0,0,0.05); padding-top: 2rem; color: var(--text-grey); font-size: 0.9rem; }
+.footer-bottom { border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1rem; color: var(--text-grey); font-size: 0.9rem; }
 
-/* --- Mobile Resp --- */
+/* Mobile Resp */
 @media (max-width: 768px) {
     .nav-links { display: none; }
     .hamburger { display: block; }
     .hero-container { flex-direction: column; text-align: center; padding-top: 0; }
     .hero-image { margin-top: 2rem; width: 100%; }
     .floating-card { display: none; }
-    .hero h1 { font-size: 2.5rem; }
+    .footer-wrapper { flex-direction: column-reverse; }
     .promise-pill { border-radius: 30px; padding: 2rem; justify-content: center; }
-    .ticket-banner { flex-direction: column; text-align: center; gap: 2rem; }
-    .ticket-icon { display: none; }
-    .hero-btns { justify-content: center; }
+}
+/* --- Navbar --- */
+.header {
+    background: var(--pure-white);
+    padding: 0.5rem 5%; /* Reduced padding slightly to fit logo better */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px; /* Fixed height to keep navbar stable */
+}
+
+/* --- LOGO IMAGE STYLES --- */
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100%; /* Fill the navbar height */
+    cursor: pointer;
+}
+
+.logo-img {
+    max-height: 60px; /* Limits height so it fits in navbar */
+    width: auto;      /* Maintains aspect ratio (doesn't stretch) */
+    object-fit: contain;
 }

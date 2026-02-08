@@ -17,8 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let index = 0;
 
     function cycleProduct() {
+        if (!imgElement) return;
+        
         // Remove animation class to reset
         imgElement.classList.remove('pop-anim');
+        textElement.classList.remove('pop-anim');
         
         // Change Index
         index = (index + 1) % products.length;
@@ -27,8 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             imgElement.src = products[index].src;
             textElement.textContent = products[index].name;
+            
             // Add animation class for the "Pop" effect
             imgElement.classList.add('pop-anim');
+            textElement.classList.add('pop-anim');
         }, 50);
     }
 
@@ -70,27 +75,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
-    hamburger.addEventListener('click', () => {
-        if (navLinks.style.display === 'flex') {
-            navLinks.style.display = 'none';
-        } else {
-            navLinks.style.display = 'flex';
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '70px';
-            navLinks.style.left = '0';
-            navLinks.style.width = '100%';
-            navLinks.style.background = 'white';
-            navLinks.style.padding = '2rem';
-            navLinks.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';
-        }
-    });
+    if(hamburger) {
+        hamburger.addEventListener('click', () => {
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '70px';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = 'white';
+                navLinks.style.padding = '2rem';
+                navLinks.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';
+            }
+        });
+    }
 });
 
 // --- 4. Direct WhatsApp Order Function ---
 function orderNow(itemName, price) {
     const phoneNumber = "919934750872"; // Shop number
-    const message = `Hello New Mithai Ghar! I would like to order: *${itemName}* (Price: ₹${price}). Please confirm available quantity.`;
+    const message = `Hello New Mithai Ghar! I would like to order: *${itemName}* (Price: ${price}). Please confirm available quantity.`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
 }
