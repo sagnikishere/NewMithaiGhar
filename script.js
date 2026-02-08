@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const imgElement = document.getElementById('cycler-img');
     const textElement = document.getElementById('cycler-text');
     
-    // Data for cycling
     const products = [
         { name: "Truffle Cake", src: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1989&auto=format&fit=crop" },
         { name: "Rasmalai", src: "https://images.unsplash.com/photo-1631260406856-f033c7a950a3?q=80&w=2070&auto=format&fit=crop" },
@@ -18,28 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function cycleProduct() {
         if (!imgElement) return;
-        
-        // Remove animation class to reset
         imgElement.classList.remove('pop-anim');
         textElement.classList.remove('pop-anim');
-        
-        // Change Index
         index = (index + 1) % products.length;
         
-        // Small timeout to allow class removal to register
         setTimeout(() => {
             imgElement.src = products[index].src;
             textElement.textContent = products[index].name;
-            
-            // Add animation class for the "Pop" effect
             imgElement.classList.add('pop-anim');
             textElement.classList.add('pop-anim');
         }, 50);
     }
-
-    // Change every 2.5 seconds
     setInterval(cycleProduct, 2500);
-
 
     // --- 2. Category Filters ---
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -49,15 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-
             const filterValue = btn.getAttribute('data-filter');
-
             productCards.forEach(card => {
                 const category = card.getAttribute('data-category');
-                
                 if (filterValue === 'all' || category === filterValue) {
                     card.style.display = 'flex';
-                    // Re-trigger animation
                     card.style.opacity = 0;
                     card.style.transform = "translateY(20px)";
                     setTimeout(() => {
@@ -92,11 +77,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- 5. VALENTINE SHUTTER LOGIC ---
+    const valentineOverlay = document.getElementById('valentine-overlay');
+    const openShopBtn = document.getElementById('open-shop-btn');
+
+    if (openShopBtn && valentineOverlay) {
+        openShopBtn.addEventListener('click', () => {
+            // Add class to trigger CSS transform animations (sliding panels)
+            valentineOverlay.classList.add('open');
+            
+            // Optional: Remove from DOM after animation completes (1s) to free memory
+            setTimeout(() => {
+                valentineOverlay.style.display = 'none';
+            }, 1000);
+        });
+    }
 });
 
 // --- 4. Direct WhatsApp Order Function ---
 function orderNow(itemName, price) {
-    const phoneNumber = "919934750872"; // Shop number
+    const phoneNumber = "919934750872"; 
     const message = `Hello New Mithai Ghar! I would like to order: *${itemName}* (Price: ${price}). Please confirm available quantity.`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');

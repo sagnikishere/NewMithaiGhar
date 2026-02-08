@@ -18,28 +18,25 @@ img { width: 100%; display: block; }
 /* --- Navbar --- */
 .header {
     background: var(--pure-white);
-    padding: 1rem 5%;
+    padding: 0.5rem 5%;
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 }
 
-.navbar { display: flex; justify-content: space-between; align-items: center; }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
 
-/* --- CLICKABLE LOGO STYLES --- */
 .logo {
-    display: flex; align-items: center; gap: 8px;
+    display: flex; align-items: center; height: 100%; cursor: pointer;
     font-size: 1.4rem; font-weight: 800; color: var(--primary-red);
-    cursor: pointer;
 }
-.logo-icon {
-    width: 40px; height: 40px; background: var(--soft-red);
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    color: var(--primary-red);
-}
-/* If using an image logo, this ensures it fits */
-.logo-image { height: 50px; width: auto; }
+.logo-img { max-height: 60px; width: auto; object-fit: contain; margin-right: 8px; }
 
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a { color: var(--text-dark); font-weight: 700; font-size: 1rem; }
@@ -86,13 +83,8 @@ img { width: 100%; display: block; }
 .hero-image { flex: 1; position: relative; display: flex; justify-content: center; }
 .floating-cake { width: 80%; border-radius: 50%; border: 5px solid rgba(255,255,255,0.3); }
 
-.pop-anim {
-    animation: cutePop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-@keyframes cutePop {
-    0% { transform: scale(0.5); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
+.pop-anim { animation: cutePop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+@keyframes cutePop { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
 
 .floating-card {
     position: absolute; background: white; padding: 8px 15px;
@@ -143,8 +135,6 @@ img { width: 100%; display: block; }
 .p-img img { width: 100%; height: 100%; object-fit: cover; }
 .p-details h3 { font-size: 1.1rem; margin-bottom: 5px; }
 .rating { color: var(--accent-yellow); font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; }
-
-/* Product Footer (Price & WA Button) */
 .p-footer { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 .price-bar {
     background: var(--soft-red); color: var(--primary-red); padding: 8px 12px;
@@ -157,50 +147,38 @@ img { width: 100%; display: block; }
 }
 .wa-order-btn:hover { background: #128C7E; transform: scale(1.05); }
 
-/* --- Promise Section (FIXED THIS PART) --- */
-.promise-section { 
-    padding: 0 10% 4rem; /* Adjusted padding to look better below products */
-    display: flex; 
-    justify-content: center; 
-    background: var(--soft-red); /* Matches the product background */
-}
-
+/* --- Promise Section --- */
+.promise-section { padding: 0 10% 4rem; display: flex; justify-content: center; background: var(--soft-red); }
 .promise-pill {
-    background: #ffe0e6;
-    border-radius: 100px;
-    padding: 2rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1000px;
-    flex-wrap: wrap;
-    gap: 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    background: #ffe0e6; border-radius: 100px; padding: 2rem 4rem;
+    display: flex; justify-content: space-between; width: 100%; max-width: 1000px;
+    flex-wrap: wrap; gap: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
-
-.promise-item { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    gap: 10px; 
-}
-
+.promise-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
 .icon-circle { 
-    font-size: 1.8rem; 
-    color: var(--primary-red); 
-    background: white;
-    width: 60px; height: 60px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; color: var(--primary-red); background: white;
+    width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
     box-shadow: 0 5px 15px rgba(255, 62, 108, 0.2);
 }
+.promise-item span { font-weight: 700; color: var(--primary-red); text-align: center; }
 
-.promise-item span { 
-    font-weight: 700; 
-    color: var(--primary-red); 
+/* --- Ticket Banner --- */
+.banner-area { padding: 2rem 10% 4rem; background: var(--soft-red); }
+.ticket-banner {
+    background: linear-gradient(90deg, #ff3e6c, #ff9ff3); border-radius: 30px;
+    padding: 3rem; display: flex; justify-content: space-between; align-items: center;
+    color: white; position: relative; overflow: hidden; box-shadow: 0 10px 20px rgba(255, 62, 108, 0.2);
 }
+.ticket-banner::before, .ticket-banner::after {
+    content: ''; position: absolute; width: 40px; height: 40px; 
+    background: var(--soft-red); border-radius: 50%; top: 50%; transform: translateY(-50%);
+}
+.ticket-banner::before { left: -20px; } .ticket-banner::after { right: -20px; }
+.ticket-content h3 { font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 10px; line-height: 1.2; }
+.ticket-content p { margin-bottom: 1.5rem; opacity: 0.9; }
+.ticket-icon { font-size: 6rem; opacity: 0.2; transform: rotate(-20deg); }
 
-/* --- Footer with Map --- */
+/* --- Footer --- */
 footer { background: #fff0f3; padding: 4rem 10% 2rem; }
 .footer-wrapper { display: flex; gap: 2rem; align-items: center; justify-content: center; flex-wrap: wrap; }
 .footer-map, .footer-content { flex: 1; min-width: 300px; }
@@ -222,131 +200,69 @@ footer { background: #fff0f3; padding: 4rem 10% 2rem; }
     .hero-image { margin-top: 2rem; width: 100%; }
     .floating-card { display: none; }
     .footer-wrapper { flex-direction: column-reverse; }
-    .promise-pill { border-radius: 30px; padding: 2rem; justify-content: center; }
-}
-/* --- Navbar --- */
-.header {
-    background: var(--pure-white);
-    padding: 0.5rem 5%; /* Reduced padding slightly to fit logo better */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px; /* Fixed height to keep navbar stable */
-}
-
-/* --- LOGO IMAGE STYLES --- */
-.logo {
-    display: flex;
-    align-items: center;
-    height: 100%; /* Fill the navbar height */
-    cursor: pointer;
-}
-
-.logo-img {
-    max-height: 60px; /* Limits height so it fits in navbar */
-    width: auto;      /* Maintains aspect ratio (doesn't stretch) */
-    object-fit: contain;
-}
-
-/* --- FIXED PROMISE SECTION (The Pink Pill) --- */
-.promise-section {
-    padding: 0 10% 4rem; /* Spacing below products */
-    display: flex;
-    justify-content: center;
-    background: var(--soft-red); /* Matches the background color */
-}
-
-.promise-pill {
-    background: #ffe0e6; /* Light pink pill background */
-    border-radius: 100px;
-    padding: 2rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1000px;
-    flex-wrap: wrap;
-    gap: 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.promise-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.icon-circle {
-    font-size: 1.8rem;
-    color: var(--primary-red);
-    background: white;
-    width: 60px; height: 60px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 5px 15px rgba(255, 62, 108, 0.2);
-}
-
-.promise-item span {
-    font-weight: 700;
-    color: var(--primary-red);
-    text-align: center;
-}
-
-/* --- ADDED TICKET BANNER STYLES --- */
-.banner-area {
-    padding: 2rem 10% 4rem;
-    background: var(--soft-red); /* Ensures smooth transition */
-}
-
-.ticket-banner {
-    background: linear-gradient(90deg, #ff3e6c, #ff9ff3);
-    border-radius: 30px;
-    padding: 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(255, 62, 108, 0.2);
-}
-
-/* The "Cutout" circles on the sides of the ticket */
-.ticket-banner::before, .ticket-banner::after {
-    content: ''; 
-    position: absolute;
-    width: 40px; height: 40px; 
-    background: var(--soft-red); /* Must match section background */
-    border-radius: 50%;
-    top: 50%; transform: translateY(-50%);
-}
-.ticket-banner::before { left: -20px; }
-.ticket-banner::after { right: -20px; }
-
-.ticket-content h3 {
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    line-height: 1.2;
-}
-.ticket-content p { margin-bottom: 1.5rem; opacity: 0.9; }
-
-.ticket-icon {
-    font-size: 6rem;
-    opacity: 0.2;
-    transform: rotate(-20deg);
-}
-
-/* Mobile Fix for Banner */
-@media (max-width: 768px) {
     .ticket-banner { flex-direction: column; text-align: center; gap: 2rem; }
     .ticket-icon { display: none; }
     .promise-pill { border-radius: 30px; padding: 2rem; justify-content: center; }
 }
+
+/* --- VALENTINE SHUTTER STYLES --- */
+#valentine-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 9999; /* Top priority */
+    display: flex; justify-content: center; align-items: center;
+}
+
+/* The Left and Right Panels */
+.shutter-panel {
+    position: absolute; top: 0;
+    width: 50%; height: 100%;
+    background: #ffecf0; /* Soft Valentine Pink */
+    z-index: 10000;
+    transition: transform 0.8s ease-in-out;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.05);
+}
+.left-panel { left: 0; border-right: 2px solid white; }
+.right-panel { right: 0; border-left: 2px solid white; }
+
+/* When class 'open' is added via JS, these move away */
+#valentine-overlay.open .left-panel { transform: translateX(-100%); }
+#valentine-overlay.open .right-panel { transform: translateX(100%); }
+#valentine-overlay.open .valentine-popup { opacity: 0; transform: scale(0.8); pointer-events: none; }
+#valentine-overlay.open { pointer-events: none; }
+
+/* The Popup Box Content */
+.valentine-popup {
+    z-index: 10001; position: relative;
+    background: white; padding: 2.5rem;
+    border-radius: 30px; text-align: center;
+    max-width: 400px; width: 90%;
+    box-shadow: 0 20px 60px rgba(255, 62, 108, 0.3);
+    border: 3px solid var(--soft-red);
+    transition: 0.5s;
+}
+
+/* Floating Heart Balloon */
+.heart-anim {
+    font-size: 3.5rem; color: var(--primary-red);
+    margin-bottom: 1rem;
+    animation: balloonFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 10px rgba(255, 62, 108, 0.3));
+}
+@keyframes balloonFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.v-text h3 {
+    font-family: var(--font-display); color: var(--primary-red);
+    font-size: 1.8rem; margin-bottom: 1rem;
+}
+.v-text p { font-size: 1rem; color: var(--text-dark); margin-bottom: 1rem; line-height: 1.5; }
+.v-text small { display: block; color: var(--text-grey); margin-bottom: 1.5rem; font-style: italic; }
+
+#open-shop-btn {
+    padding: 12px 30px; background: var(--primary-red); color: white;
+    border: none; border-radius: 50px; font-weight: 700; cursor: pointer;
+    font-size: 1rem; transition: 0.3s;
+}
+#open-shop-btn:hover { background: #d63031; transform: scale(1.05); }
