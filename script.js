@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const textElement = document.getElementById('cycler-text');
     
     const products = [
-        { name: "Truffle Cake", src: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1989&auto=format&fit=crop" },
-        { name: "Rasmalai", src: "https://images.unsplash.com/photo-1631260406856-f033c7a950a3?q=80&w=2070&auto=format&fit=crop" },
-        { name: "Gulab Jamun", src: "https://images.unsplash.com/photo-1630409346824-4f0e7b080087?q=80&w=2008&auto=format&fit=crop" },
-        { name: "Veg Momos", src: "https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?q=80&w=2069&auto=format&fit=crop" },
+        { name: "Truffle Cake", src: "pic/Pastry/DSC_1850.JPG" },
+        { name: "Cake", src: "pic/cake/DSC_2491.JPG" },
+        { name: "Gulab Jamun", src: "pic/sweets/DSC_1493(1).JPG" },
+        { name: "Masala Bhujia", src: "pic/Namkeen/masala bhujia.JPG" },
         { name: "Samosa", src: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=2070&auto=format&fit=crop" },
-        { name: "Chocolates", src: "https://images.unsplash.com/photo-1548848221-0c2e497ed557?q=80&w=2071&auto=format&fit=crop" }
+        { name: "Paneer Tikka", src: "pic/Namkeen/paneer tikka.JPG" }
     ];
 
     let index = 0;
