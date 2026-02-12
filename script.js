@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "Paneer Tikka", src: "pic/Namkeen/paneer tikka.JPG" }
     ];
 
-    let index = 0;
+    let index = 1;
 
     function cycleProduct() {
         if (!imgElement) return;

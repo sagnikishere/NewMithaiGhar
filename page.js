@@ -5,7 +5,7 @@ const products = [
         name: "Chocolate Truffle",
         category: "designer", // Matches data-filter in HTML
         rating: 4.8,
-        price: "₹500",
+        price: "",
         unit: "",
         image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80"
     },
@@ -14,7 +14,7 @@ const products = [
         name: "Veg Momos (Steam)",
         category: "momos",
         rating: 4.9,
-        price: "₹120",
+        price: "",
         unit: "",
         image: "https://images.unsplash.com/photo-1626776876729-bab4306261ca?auto=format&fit=crop&w=500&q=80"
     },
@@ -23,8 +23,8 @@ const products = [
         name: "Khir Malai",
         category: "traditional",
         rating: 5.0,
-        price: "₹300",
-        unit: "/kg",
+        price: "",
+        unit: "",
         image: "https://images.unsplash.com/photo-1517260739337-6799d2ff1fdb?auto=format&fit=crop&w=500&q=80" // Sweet image
     },
     {
@@ -32,7 +32,7 @@ const products = [
         name: "Raj Kachori",
         category: "chat",
         rating: 4.7,
-        price: "₹120",
+        price: "",
         unit: "",
         image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=500&q=80"
     },
@@ -42,7 +42,7 @@ const products = [
         name: "Black Forest Cake",
         category: "designer",
         rating: 4.5,
-        price: "₹450",
+        price: "",
         unit: "",
         image: "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?auto=format&fit=crop&w=500&q=80"
     },
@@ -51,7 +51,7 @@ const products = [
         name: "Paneer Momos",
         category: "momos",
         rating: 4.8,
-        price: "₹150",
+        price: "",
         unit: "",
         image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=80"
     },
@@ -60,8 +60,8 @@ const products = [
         name: "Rasgulla",
         category: "traditional",
         rating: 4.9,
-        price: "₹280",
-        unit: "/kg",
+        price: "",
+        unit: "",
         image: "https://images.unsplash.com/photo-1589119908995-c6837fa14848?auto=format&fit=crop&w=500&q=80"
     },
     {
@@ -69,7 +69,7 @@ const products = [
         name: "Dahi Puri",
         category: "chat",
         rating: 4.6,
-        price: "₹90",
+        price: "",
         unit: "",
         image: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=500&q=80"
     }

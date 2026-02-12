@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - New MithaiGhar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="page.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <img src="https://via.placeholder.com/150x50?text=New+MithaiGhar" alt="New MithaiGhar">
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="page.html">Menu</a>
+                <a href="#">Bestsellers</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="contact-hero">
+        <h1>Get in Touch! <i class="fas fa-heart" style="color: #ff4757; animation: beat 1s infinite;"></i></h1>
+        <p>Have a question or want to order a custom cake? We are just a message away.</p>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-card">
+                
+                <div class="contact-info">
+                    <h3>Find Us Here</h3>
+                    <p>Visit our sweet shop for a tasting!</p>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Sweet Street, Foodie Market, City Center, India</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 98765 43210</span>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.066068249875!2d77.20902131508246!3d28.62796118241946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi%20110001!5e0!3m2!1sen!2sin!4v1645426744820!5m2!1sen!2sin" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form id="whatsappForm" onsubmit="sendToWhatsapp(event)">
+                        <h3>Send a Message</h3>
+                        
+                        <div class="input-group">
+                            <label>Your Name</label>
+                            <input type="text" id="name" placeholder="e.g. Rahul Kumar" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Contact Number</label>
+                            <input type="tel" id="phone" placeholder="e.g. 98765xxxxx" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Your Wish</label>
+                            <textarea id="message" rows="4" placeholder="I want to order a customized cake..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="send-btn">
+                            Send on WhatsApp <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <img src="https://via.placeholder.com/120x40?text=New+MithaiGhar" alt="Logo">
+                <p>Spreading sweetness since 1995.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> order@mithaighar.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 New MithaiGhar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="contact.js"></script>
+</body>
+</html>
