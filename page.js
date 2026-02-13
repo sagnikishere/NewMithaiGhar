@@ -149,3 +149,46 @@ function toggleWishlist(element) {
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts('all');
 });
+
+// --- MODAL LOGIC ---
+
+const modal = document.getElementById('productModal');
+const mImg = document.getElementById('m-img');
+const mTitle = document.getElementById('m-title');
+const mPrice = document.getElementById('m-price');
+
+// Function to open modal
+function openModal(id) {
+    // Find product from the array (using the 'products' array from your code)
+    const product = products.find(p => p.id === id);
+    
+    if(product) {
+        mImg.src = product.image;
+        mTitle.innerText = product.name;
+        mPrice.innerText = product.price + product.unit;
+        
+        // Show modal
+        modal.classList.add('active');
+    }
+}
+
+// Function to close modal
+function closeModal() {
+    modal.classList.remove('active');
+}
+
+// Close if clicking outside the box
+window.onclick = function(event) {
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+
+// --- UPDATE RENDER FUNCTION ---
+// Look for your existing renderProducts function in page.js 
+// and change the image HTML line to this:
+
+/* <div class="p-image" onclick="openModal(${product.id})" style="cursor: pointer;">
+       <img src="${product.image}" alt="${product.name}">
+   </div>
+*/

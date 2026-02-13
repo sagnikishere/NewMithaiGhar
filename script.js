@@ -1,82 +1,116 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. Cute Image Cycler Animation ---
+    // --- 1. PRODUCT CYCLER (Hero Section) ---
     const imgElement = document.getElementById('cycler-img');
     const textElement = document.getElementById('cycler-text');
     
+    // Replace these URLs with your actual local images or Unsplash links
     const products = [
-        { name: "Truffle Cake", src: "pic/Pastry/DSC_1850.JPG" },
-        { name: "Cake", src: "pic/cake/DSC_2491.JPG" },
-        { name: "Gulab Jamun", src: "pic/sweets/DSC_1493(1).JPG" },
-        { name: "Masala Bhujia", src: "pic/Namkeen/masala bhujia.JPG" },
-        { name: "Samosa", src: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=2070&auto=format&fit=crop" },
-        { name: "Paneer Tikka", src: "pic/Namkeen/paneer tikka.JPG" }
+        { name: "Truffle Cake", src: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1989" },
+        { name: "Spicy Momos", src: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?q=80&w=2070" },
+        { name: "Gulab Jamun", src: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=500" },
+        { name: "Masala Chat", src: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=500" }
     ];
 
-    let index = 1;
+    let index = 0;
 
     function cycleProduct() {
         if (!imgElement) return;
+        
+        // Remove animation class to reset
         imgElement.classList.remove('pop-anim');
         textElement.classList.remove('pop-anim');
+        
+        // Update Index
         index = (index + 1) % products.length;
         
+        // Small delay to allow CSS reset, then change src and add animation
         setTimeout(() => {
             imgElement.src = products[index].src;
             textElement.textContent = products[index].name;
+            
             imgElement.classList.add('pop-anim');
             textElement.classList.add('pop-anim');
         }, 50);
     }
-    setInterval(cycleProduct, 2500);
+    setInterval(cycleProduct, 3000);
 
-    // --- 2. Category Filters ---
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const productCards = document.querySelectorAll('.product-card');
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const filterValue = btn.getAttribute('data-filter');
-            productCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                if (filterValue === 'all' || category === filterValue) {
-                    card.style.display = 'flex';
-                    card.style.opacity = 0;
-                    card.style.transform = "translateY(20px)";
-                    setTimeout(() => {
-                        card.style.opacity = 1;
-                        card.style.transform = "translateY(0)";
-                    }, 100);
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
+    // --- 2. VALENTINE CURSOR SPRAY ---
+    document.addEventListener('mousemove', function(e) {
+        // Create heart element
+        let heart = document.createElement('span');
+        heart.classList.add('cursor-heart');
+        
+        // Position it at mouse coordinates
+        let x = e.offsetX;
+        let y = e.offsetY;
+        
+        // For whole page tracking (better than offsetX sometimes)
+        heart.style.left = e.pageX + 'px';
+        heart.style.top = e.pageY + 'px';
+        
+        // Random size for variety
+        let size = Math.random() * 20 + 10; 
+        heart.style.width = size + 'px';
+        heart.style.height = size + 'px';
+        
+        document.body.appendChild(heart);
+        
+        // Remove after animation (1s) to prevent memory leak
+        setTimeout(() => {
+            heart.remove();
+        }, 1000);
     });
 
-    // --- 3. Mobile Menu ---
+    // --- 3. FLYING LOVE BALLOONS ---
+    function createBalloon() {
+        const balloonContainer = document.getElementById('balloon-container');
+        const balloon = document.createElement('div');
+        balloon.classList.add('balloon');
+        balloon.innerHTML = '❤️'; // Or use an image 🎈
+        
+        // Random horizontal position
+        balloon.style.left = Math.random() * 100 + 'vw';
+        
+        // Random size
+        balloon.style.fontSize = (Math.random() * 20 + 20) + 'px';
+        
+        // Random animation duration
+        balloon.style.animationDuration = (Math.random() * 5 + 5) + 's';
+        
+        balloonContainer.appendChild(balloon);
+        
+        // Remove after animation ends
+        setTimeout(() => {
+            balloon.remove();
+        }, 10000);
+    }
+    // Create a balloon every 500ms
+    setInterval(createBalloon, 500);
+
+
+    // --- 4. MOBILE MENU TOGGLE ---
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
     if(hamburger) {
         hamburger.addEventListener('click', () => {
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
+            // Toggle the class 'active' on navLinks
+            navLinks.classList.toggle('active');
+            
+            // Toggle icon shape
+            const icon = hamburger.querySelector('i');
+            if(navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
             } else {
-                navLinks.style.display = 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '70px';
-                navLinks.style.left = '0';
-                navLinks.style.width = '100%';
-                navLinks.style.background = 'white';
-                navLinks.style.padding = '2rem';
-                navLinks.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             }
         });
     }
+
 
     // --- 5. VALENTINE SHUTTER LOGIC ---
     const valentineOverlay = document.getElementById('valentine-overlay');
@@ -84,10 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (openShopBtn && valentineOverlay) {
         openShopBtn.addEventListener('click', () => {
-            // Add class to trigger CSS transform animations (sliding panels)
             valentineOverlay.classList.add('open');
-            
-            // Optional: Remove from DOM after animation completes (1s) to free memory
             setTimeout(() => {
                 valentineOverlay.style.display = 'none';
             }, 1000);
@@ -95,10 +126,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// --- 4. Direct WhatsApp Order Function ---
+// --- 6. WHATSAPP ORDER FUNCTION ---
 function orderNow(itemName, price) {
     const phoneNumber = "919934750872"; 
-    const message = `Hello New Mithai Ghar! I would like to order: *${itemName}* (Price: ${price}). Please confirm available quantity.`;
+    const message = `Hello New Mithai Ghar! I want to order for Valentine's: *${itemName}* (Price: ${price}).`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
 }
