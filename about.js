@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // 2. NUMBER COUNTER ANIMATION
-    // This function runs only when the stats section becomes visible
     function startCounters(section) {
         const counters = section.querySelectorAll('.counter');
         const speed = 200; // Lower is slower
@@ -37,29 +36,25 @@ document.addEventListener("DOMContentLoaded", () => {
             const updateCount = () => {
                 const target = +counter.getAttribute('data-val');
                 const count = +counter.innerText;
-                
-                // Calculate increment step
                 const inc = target / speed;
 
                 if (count < target) {
                     counter.innerText = Math.ceil(count + inc);
                     setTimeout(updateCount, 20);
                 } else {
-                    counter.innerText = target.toLocaleString(); // Add commas (e.g., 50,000)
+                    counter.innerText = target.toLocaleString(); 
                 }
             };
             updateCount();
         });
     }
 
-    // Special check for the "Years of Experience" badge in the story section
-    // because it's not inside the stats section
+    // 3. SPECIAL BADGE OBSERVER
     const badgeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if(entry.isIntersecting) {
                 const numSpan = entry.target.querySelector('.num');
                 if(numSpan) {
-                    // Quick custom counter for the single badge
                     let start = 0;
                     let end = parseInt(numSpan.getAttribute('data-val'));
                     let duration = 2000;
@@ -79,5 +74,47 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const badge = document.querySelector('.exp-badge');
     if(badge) badgeObserver.observe(badge);
+
+    // ---------------------------------------------------------
+    // NEW ADDITIONS: MOBILE MENU & CURSOR EFFECT
+    // ---------------------------------------------------------
+
+    // 4. MOBILE MENU LOGIC
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if(hamburger) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            const icon = hamburger.querySelector('i');
+            if(navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+
+    // 5. SWEET CURSOR EFFECT (Spreads sweets when moving mouse)
+    const sweetsList = ['🍬', '🍩', '🧁', '🍫', '🍡', '🍮'];
+    document.addEventListener('mousemove', function(e) {
+        // Limit spawning frequency slightly so it's not overwhelming
+        if(Math.random() > 0.8) { 
+            let sweet = document.createElement('span');
+            // Using the class we defined in page.css previously
+            sweet.classList.add('cursor-sweet');
+            sweet.innerText = sweetsList[Math.floor(Math.random() * sweetsList.length)];
+            
+            sweet.style.left = e.pageX + 'px';
+            sweet.style.top = e.pageY + 'px';
+            
+            document.body.appendChild(sweet);
+            
+            setTimeout(() => { sweet.remove(); }, 1000);
+        }
+    });
 
 });

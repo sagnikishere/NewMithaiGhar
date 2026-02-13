@@ -4,26 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Sweet Story - New MithaiGhar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="pic/logo/logo.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link rel="stylesheet" href="page.css"> <link rel="stylesheet" href="about.css"> </head>
 <body>
 
-    <header>
-        <div class="container navbar">
-            <div class="logo">
-                <img src="https://via.placeholder.com/150x50?text=New+MithaiGhar" alt="New MithaiGhar">
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="pic/logo/logo.png" alt="New Mithai Ghar" class="logo-img">
+                New Mithai <span>Ghar</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="page.html">Menu</a></li>
+                <li><a href="about.html" class="active">About Us</a></li> 
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <a href="https://wa.me/919934750872" class="icon-btn"><i class="fab fa-whatsapp"></i></a>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
             </div>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="page.html">Menu</a>
-                <a href="#" class="active">About Us</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-            <div class="mobile-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
+        </nav>
     </header>
 
     <section class="about-hero">
@@ -114,27 +123,28 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-col">
-                <img src="https://via.placeholder.com/120x40?text=New+MithaiGhar" alt="Logo">
-                <p>Spreading sweetness since 1995.</p>
+    <footer id="contact">
+        <div class="footer-wrapper container">
+            <div class="footer-map reveal-up">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.6!2d85.9!3d26.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDA2JzAwLjAiTiA4NcKwNTQnMDAuMCJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin" 
+                width="100%" height="200" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Menu</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
+
+            <div class="footer-content reveal-up">
+                <div class="f-brand">
+                    <h3>New Mithai Ghar</h3>
+                    <p>Arvind Market, Tower Chowk,<br>Darbhanga, Bihar 846004</p>
+                </div>
+                <div class="f-socials">
+                    <a href="https://www.instagram.com/newmithaighar_darbhanga/"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/919934750872"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="footer-bottom">
+                    <p>Call us: +91 99347 50872</p>
+                    <small>© 2026 New Mithai Ghar. Made with Love.</small>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2024 New MithaiGhar. All rights reserved.</p>
         </div>
     </footer>
 
