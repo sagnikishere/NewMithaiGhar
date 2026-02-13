@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. SWEET/HEART CURSOR EFFECT (Spreads emojis when moving mouse)
     // I included a glowing heart specifically for the contact/Valentine vibe
-    const sweetsList = ['💖', '🍬', '🍩', '🧁', '🍫', '🍡', '🍮'];
+    const sweetsList = ['💖'];
     
     document.addEventListener('mousemove', function(e) {
         // Limit spawning frequency slightly so it's smooth
