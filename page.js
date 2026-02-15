@@ -1,13 +1,13 @@
 // Product Data Array
 const products = [
     { id: 1, name: "Chocolate Truffle", category: "designer", rating: 4.8, price: "", unit: "", image: "pic/cake/choco chip cake.JPG" },
-         { id: 10, name: "Chocolate Truffle", category: "designer", rating: 4.8, price: "", unit: "", image: "pic/cake/DSC_2327(1).JPG" },
-         { id: 9, name: "Chocolate Truffle", category: "designer", rating: 4.8, price: "", unit: "", image: "pic/cake/DSC_2347(1).JPG" },
-         { id: 11, name: "Chocolate Truffle", category: "designer", rating: 4.8, price: "", unit: "", image: "pic/cake/DSC_2384(1).JPG" },
-         { id: 12, name: "Chocolate Truffle", category: "designer", rating: 4.8, price: "", unit: "", image: "pic/cake/DSC_2453(1).JPG" },
-         { id: 13, name: "Chocolate Truffle", category: "designer", rating: 4.8, price: "", unit: "", image: "pic/cake/DSC_2460(1).JPG" },
-         { id: 14, name: "Chocolate Truffle", category: "designer", rating: 4.8, price: "", unit: "", image: "pic/cake/DSC_2468(1).JPG" },
-         { id: 15, name: "Chocolate Truffle", category: "designer", rating: 4.8, price: "", unit: "", image: "pic/cake/DSC_2491.JPG" },
+         { id: 10, name: "Celebration Cake", category: "designer", rating: 4.8, price: "", unit: "", image: "pic/cake/DSC_2327(1).JPG" },
+         { id: 9, name: " Celebration Cake", category: "designer", rating: 4.8, price: "", unit: "", image: "pic/cake/DSC_2347(1).JPG" },
+         { id: 11, name: "Celebration Cake", category: "designer", rating: 4.8, price: "", unit: "", image: "pic/cake/DSC_2384(1).JPG" },
+         { id: 12, name: "Celebration Cake", category: "designer", rating: 4.8, price: "", unit: "", image: "pic/cake/DSC_2453(1).JPG" },
+         { id: 13, name: "Celebration Cake", category: "designer", rating: 4.8, price: "", unit: "", image: "pic/cake/DSC_2460(1).JPG" },
+         { id: 14, name: "Celebration Cake", category: "designer", rating: 4.8, price: "", unit: "", image: "pic/cake/DSC_2468(1).JPG" },
+         { id: 15, name: "Celebration Cake", category: "designer", rating: 4.8, price: "", unit: "", image: "pic/cake/DSC_2491.JPG" },
         
     { id: 20, name: "Chana jhor garam", category: "momos", rating: 4.9, price: "", unit: "", image: "pic/Namkeen/chana jhor garam.JPG" },
     { id: 30, name: "Khir Malai", category: "momos", rating: 5.0, price: "", unit: "", image: "pic/Namkeen/chura mixture.JPG" },
@@ -62,9 +62,9 @@ const products = [
     { id: 99, name: "Kaju Bite", category:"traditional", rating :4.9 , price:"", unit:"", image:"pic/sweets/kaju bite.JPG"},
     { id: 100, name: "Anjeer Burfi", category: "traditional", rating: 5, price: "", unit: "", image:"pic/sweets/kaju anjeer burfi.JPG" },
 
-       { id: 8, name: "Dahi Puri", category: "chat", rating: 4.6, price: "₹90", unit: "", image: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=500&q=80" }
+      
 ];
-
+ 
 const productGrid = document.getElementById('productGrid');
 const filterBtns = document.querySelectorAll('.cat-card');
 
