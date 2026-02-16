@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Replace these URLs with your actual local images or Unsplash links
     const products = [
-        { name: "Truffle Cake", src: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1989" },
-        { name: "Spicy Momos", src: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?q=80&w=2070" },
-        { name: "Gulab Jamun", src: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=500" },
-        { name: "Masala Chat", src: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=500" }
+        { name: "Modak", src: "pic/sweets/modak.JPG" },
+        { name: "Chocolate Laddu", src: "pic/sweets/chocolate laddu.JPG" },
+        { name: "Tasty Cake", src: "pic/Pastry/DSC_1850.JPG" },
+        { name: "Paneer Tikka", src: "pic/Namkeen/paneer tikka.JPG" }
     ];
 
     let index = 0;
