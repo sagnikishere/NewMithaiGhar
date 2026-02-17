@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Replace these URLs with your actual local images or Unsplash links
     const products = [
-        { name: "Modak", src: "pic/sweets/modak.JPG" },
-        { name: "Chocolate Laddu", src: "pic/sweets/chocolate laddu.JPG" },
-        { name: "Tasty Cake", src: "pic/Pastry/DSC_1850.JPG" },
-        { name: "Paneer Tikka", src: "pic/Namkeen/paneer tikka.JPG" }
+        { name: "Modak", src: "pic/sweets/modak.webp" },
+        { name: "Chocolate Laddu", src: "pic/sweets/chocolate laddu.webp" },
+        { name: "Tasty Cake", src: "pic/Pastry/DSC_1850.webp" },
+        { name: "Paneer Tikka", src: "pic/Namkeen/paneer tikka.webp" }
     ];
 
     let index = 0;
