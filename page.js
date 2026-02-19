@@ -49,7 +49,7 @@ const products = [
     { id: 45, name: "Sandesh", category: "traditional", rating: 5, price: "", unit: "", image: "pic/sweets/sandesh.webp" },
     { id: 46, name: "Soanpapdi", category: "traditional", rating: 5, price: "", unit: "", image: "pic/sweets/soanpapdi.webp" },
     { id: 47, name: "Cold Coffee", category: "traditional", rating: 5, price: "", unit: "", image: "pic/sweets/Cold Coffee.webp" },
-    { id: 48, name: "Badam Milk", category: "traditional", rating: 5, price: "", unit: "", image: "pic/sweets/Badam milk.webp" },
+    { id: 48, name: "Badam Milk", category: "traditional", rating: 5, price: "", unit: "", image: "pic/sweets/Badam Milk.webp" },
     { id: 49, name: "Sweet Lassi", category: "traditional", rating: 5, price: "", unit: "", image: "pic/sweets/Sweet Lassi.webp" },
 
     { id: 53, name: "Chocolate Truffle", category: "designer", rating: 4.8, price: "", unit: "", image: "pic/cake/choco chip cake.webp" },
