@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const imgElement = document.getElementById('cycler-img');
     const textElement = document.getElementById('cycler-text');
     
-    // Kept your file names exactly as requested
     const products = [
         { name: "Modak", src: "pic/sweets/modak.webp" },
         { name: "Chocolate Laddu", src: "pic/sweets/chocolate laddu.webp" },
@@ -57,11 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const welcomeOverlay = document.getElementById('welcome-overlay');
 
     if (welcomeOverlay) {
-        // Automatically open the shutter after 2.5 seconds simulating a loader
         setTimeout(() => {
             welcomeOverlay.classList.add('open');
             
-            // Remove from DOM flow after transition finishes to prevent blocking clicks
             setTimeout(() => {
                 welcomeOverlay.style.display = 'none';
             }, 1200); 
@@ -69,34 +66,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// --- 4. WHATSAPP ORDER FUNCTION (Updated Message) ---
+// --- 4. WHATSAPP ORDER FUNCTION (Updated Number) ---
 function orderNow(itemName, price) {
-    const phoneNumber = "919934750872"; 
-    // Removed "for Valentine's" from the template
+    const phoneNumber = "919304863952"; // Updated to the new number
     const message = `Hello New Mithai Ghar! I want to order: *${itemName}* (Price: ${price}).`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
 }
 
 // --- CURSOR HEART EFFECT ---
-    document.addEventListener('mousemove', function(e) {
-        // Create heart element
-        let heart = document.createElement('span');
-        heart.classList.add('cursor-heart');
-        
-        // Position it at mouse coordinates (pageX/Y for whole page tracking)
-        heart.style.left = e.pageX + 'px';
-        heart.style.top = e.pageY + 'px';
-        
-        // Random size for variety
-        let size = Math.random() * 20 + 10; 
-        heart.style.width = size + 'px';
-        heart.style.height = size + 'px';
-        
-        document.body.appendChild(heart);
-        
-        // Remove after animation (1s) to prevent memory leak
-        setTimeout(() => {
-            heart.remove();
-        }, 1000);
-    });
+document.addEventListener('mousemove', function(e) {
+    let heart = document.createElement('span');
+    heart.classList.add('cursor-heart');
+    
+    heart.style.left = e.pageX + 'px';
+    heart.style.top = e.pageY + 'px';
+    
+    let size = Math.random() * 20 + 10; 
+    heart.style.width = size + 'px';
+    heart.style.height = size + 'px';
+    
+    document.body.appendChild(heart);
+    
+    setTimeout(() => {
+        heart.remove();
+    }, 1000);
+});

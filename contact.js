@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. SWEET/HEART CURSOR EFFECT (Spreads emojis when moving mouse)
-    // I included a glowing heart specifically for the contact/Valentine vibe
     const sweetsList = ['💖'];
     
     document.addEventListener('mousemove', function(e) {
@@ -76,8 +75,8 @@ function sendToWhatsapp(e) {
                             `*Phone:* ${phone} %0a` +
                             `*Message:* ${message}`;
 
-    // 3. Your Business Number (Updated to your Darbhanga number)
-    const phoneNumber = "919934750872"; 
+    // 3. Your Business Number (Updated to the requested number)
+    const phoneNumber = "919304863952"; 
 
     // 4. Create URL
     const url = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
